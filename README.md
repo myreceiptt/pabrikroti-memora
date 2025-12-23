@@ -248,6 +248,7 @@ yarn start
 
 - `@types/node` is pinned to **24.x** to match the Node 24 runtime (Vercel).
 - Yarn is **4.x**; use `yarn up -i` for update review and `yarn npm audit --severity moderate` for security checks.
+- Live parity check (memora.endhonesa.com): **All green** — no critical console errors, UX unchanged.
 
 ## 📦 Resources
 
