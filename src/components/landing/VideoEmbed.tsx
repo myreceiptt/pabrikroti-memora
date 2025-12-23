@@ -139,7 +139,9 @@ export default function VideoEmbed() {
       if (!isM3U8) {
         try {
           await video.play();
-        } catch {}
+        } catch {
+          // Ignore autoplay errors
+        }
         return;
       }
 
@@ -148,7 +150,9 @@ export default function VideoEmbed() {
         try {
           video.src = rawUrl;
           await video.play();
-        } catch {}
+        } catch {
+          // Ignore autoplay errors
+        }
         return;
       }
 
@@ -169,19 +173,25 @@ export default function VideoEmbed() {
           hls.on(HlsCtor.Events.MANIFEST_PARSED, async () => {
             try {
               await video.play();
-            } catch {}
+            } catch {
+              // Ignore autoplay errors
+            }
           });
         } else {
           video.src = rawUrl;
           try {
             await video.play();
-          } catch {}
+          } catch {
+            // Ignore autoplay errors
+          }
         }
       } catch {
         video.src = rawUrl;
         try {
           await video.play();
-        } catch {}
+        } catch {
+          // Ignore autoplay errors
+        }
       }
     };
 

@@ -32,7 +32,9 @@ export default function HlsPlayer({ src, poster, autoPlay, className }: Props) {
             video.muted = true;
             await video.play();
           }
-        } catch {}
+        } catch {
+          // Ignore autoplay errors
+        }
         return;
       }
 
@@ -55,7 +57,9 @@ export default function HlsPlayer({ src, poster, autoPlay, className }: Props) {
                 video.muted = true;
                 await video.play();
               }
-            } catch {}
+            } catch {
+              // Ignore autoplay errors
+            }
           });
         } else {
           video.src = src;
@@ -64,7 +68,9 @@ export default function HlsPlayer({ src, poster, autoPlay, className }: Props) {
               video.muted = true;
               await video.play();
             }
-          } catch {}
+          } catch {
+            // Ignore autoplay errors
+          }
         }
       } catch {
         video.src = src;
@@ -73,7 +79,9 @@ export default function HlsPlayer({ src, poster, autoPlay, className }: Props) {
             video.muted = true;
             await video.play();
           }
-        } catch {}
+        } catch {
+          // Ignore autoplay errors
+        }
       }
     })();
 
@@ -83,7 +91,9 @@ export default function HlsPlayer({ src, poster, autoPlay, className }: Props) {
         video.pause();
         video.removeAttribute("src");
         video.load();
-      } catch {}
+      } catch {
+        // Ignore cleanup errors
+      }
       if (hlsRef.current) {
         hlsRef.current.destroy?.();
         hlsRef.current = null;

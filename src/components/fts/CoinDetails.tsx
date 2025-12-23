@@ -298,13 +298,22 @@ export default function CoinDetails() {
       const adjustedMaxSupply =
         adjustedMaxClaim + (adjustedSupply - adjustedClaimed);
 
+      const coinName =
+        typeof coinMetaData.name === "string" ? coinMetaData.name : "";
+      const coinSymbol =
+        typeof coinMetaData.symbol === "string" ? coinMetaData.symbol : "";
+      const coinDescription =
+        typeof coinMetaData.description === "string" ? coinMetaData.description : "";
+      const coinImage =
+        typeof coinMetaData.image === "string" ? coinMetaData.image : "";
+
       setCoin({
         coinAddress: erc20ContractLaunched.address,
         coinChain: erc20ContractLaunched.chain,
-        coinName: coinMetaData.name,
-        coinSymbol: coinMetaData.symbol,
-        coinDescription: coinMetaData.description,
-        coinImage: coinMetaData.image,
+        coinName,
+        coinSymbol,
+        coinDescription,
+        coinImage,
         coinBy: erc20ContractLaunched.by,
         coinLink: erc20ContractLaunched.link,
         startTimestamp: claimCondition.startTimestamp,
