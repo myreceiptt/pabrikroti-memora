@@ -11,6 +11,75 @@
 
 ---
 
+---
+---
+
+## Maintenance by Prof. NOTA Evergreen Standard
+
+This repo is intended to stay evergreen while remaining production-safe.
+
+### Runtime
+
+- Node: **24.x** (see `package.json#engines`)
+
+  - ~~example alternatives: 22.x / 20.x (adjust if platform requires)~~
+
+- Package manager:
+
+  - **Yarn** (lockfile: `yarn.lock`)
+  - ~~PNPM (lockfile: `pnpm-lock.yaml`)~~
+  - ~~NPM (lockfile: `package-lock.json`)~~
+
+- Deploy target:
+
+  - **Vercel**
+  - ~~Netlify~~
+  - ~~Self-hosted / Docker~~
+  - ~~Other platform (document explicitly)~~
+
+### Monthly Safe Updates (recommended)
+
+1. Check what's outdated:
+
+   - `yarn up -i`
+   - ~~pnpm outdated~~
+   - ~~npm outdated~~
+
+2. Upgrade safe (patch/minor) versions:
+
+   - `yarn up -R`
+   - ~~pnpm update~~
+   - ~~npm update~~
+   - or upgrade specific packages shown as non-major
+
+3. Verify:
+
+   - `yarn npm audit --severity moderate`
+   - ~~pnpm audit~~
+   - ~~npm audit~~
+   - `yarn build`
+   - ~~pnpm build~~
+   - ~~npm run build~~
+
+4. Deploy:
+
+   - **Vercel auto-deploy from `main`**
+   - ~~manual deploy according to platform workflow~~
+
+### Major Updates (quarterly / scheduled)
+
+Major upgrades (framework, runtime, or core tooling) must be done one at a time, with a dedicated PR and full testing.
+
+Examples:
+
+- Node major version
+- Next.js / React major version
+- Tailwind CSS major version
+- Package manager major version
+
+---
+
+---
 ## 📚 Table of Contents
 
 - [Quick Start](#-quick-start)
@@ -35,7 +104,7 @@ Link #2: [motion.endhonesa.com](https://motion.endhonesa.com/) [![status](https:
 ## 🚀 Quick Start
 
 ```bash
-yarn && yarn dev
+yarn install && yarn dev
 ```
 
 > If you find this useful, consider starring ⭐ the repository! Please!
@@ -112,7 +181,7 @@ PABRIKROTI operates as a **decentralized digital production space**, where each 
 - **Web3-Ready & Mobile Optimized**  
   Built with:
 
-  - Next.js 15 + App Router
+  - Next.js 16 + App Router
   - React 19 + Server Components
   - Tailwind CSS v4
   - ThirdWeb SDK v5
@@ -128,25 +197,25 @@ PABRIKROTI operates as a **decentralized digital production space**, where each 
 ### 📦 Install dependencies
 
 ```bash
-yarn
+yarn install
 ```
 
 ### 🔍 Check outdated dependencies
 
 ```bash
-yarn outdated
+yarn up -i
 ```
 
 ### ⬆️ Upgrade dependencies interactively
 
 ```bash
-yarn upgrade-interactive --latest
+yarn up -R
 ```
 
 ### 🧹 Cleaning and re-install dependencies
 
 ```bash
-yarn rm -rf node_modules yarn.lock && yarn install
+rm -rf node_modules .yarn/install-state.gz && yarn install
 ```
 
 ### ▶️ Run development server
@@ -158,7 +227,7 @@ yarn dev
 ### 🧪 Lint and check all the code quality
 
 ```bash
-yarn run lint
+yarn lint
 ```
 
 ### 🏗️ Build for production
@@ -174,6 +243,11 @@ yarn start
 ```
 
 ---
+
+## Evergreen Notes
+
+- `@types/node` is pinned to **24.x** to match the Node 24 runtime (Vercel).
+- Yarn is **4.x**; use `yarn up -i` for update review and `yarn npm audit --severity moderate` for security checks.
 
 ## 📦 Resources
 
