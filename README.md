@@ -12,7 +12,6 @@
 ---
 
 ---
----
 
 ## Maintenance by Prof. NOTA Evergreen Standard
 
@@ -80,6 +79,7 @@ Examples:
 ---
 
 ---
+
 ## 📚 Table of Contents
 
 - [Quick Start](#-quick-start)
@@ -96,8 +96,8 @@ Examples:
 
 ## 📦 Staging 2.4.74 by Ina Motion
 
-Link #1: [www.inamotion.id](https://www.inamotion.id/) [![status](https://img.shields.io/badge/deploy-live-brightgreen)](https://www.inamotion.id/)  
-Link #2: [motion.endhonesa.com](https://motion.endhonesa.com/) [![status](https://img.shields.io/badge/deploy-live-brightgreen)](https://motion.endhonesa.com/)
+Link #1: [memora.voyage.co.id](https://memora.voyage.co.id/) [![status](https://img.shields.io/badge/deploy-live-brightgreen)](https://memora.voyage.co.id/)  
+Link #2: [memora.endhonesa.com](https://memora.endhonesa.com/) [![status](https://img.shields.io/badge/deploy-live-brightgreen)](https://memora.endhonesa.com/)
 
 ---
 
