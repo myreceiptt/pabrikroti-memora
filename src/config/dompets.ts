@@ -6,7 +6,7 @@ import { createWallet, inAppWallet } from "thirdweb/wallets";
 export const dompets = [
   inAppWallet({
     auth: {
-      options: ["email", "passkey", "google", "apple", "phone"],
+      options: ["email", "passkey", "google", "apple"],
     },
   }),
   createWallet("io.metamask"),
