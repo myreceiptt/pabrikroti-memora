@@ -9,47 +9,11 @@
 >
 > — Prof. NOTA
 
----
-
----
-
-## Maintenance by Prof. NOTA Evergreen Standard
-
-This repo is intended to stay evergreen while remaining production-safe.
-
-### Current Baseline (Jan 2026)
-
-- Runtime: Node **24.x** (Vercel-compatible; see `.nvmrc` and `package.json#engines`)
-- Package manager: Yarn **4.12.0** (lockfile: `yarn.lock`)
-- Types: `@types/node` **24.10.7** (pinned to match Node 24; 25.x intentionally deferred)
-- Key packages: Next.js **16.1.4**, React **19.2.3**, thirdweb **5.118.0**, framer-motion **12.29.0**, hls.js **1.6.15**
-- Deploy target: **Vercel auto-deploy from `main`**
-
-### Monthly Evergreen Cycle (safe)
-
-- `yarn install`
-- `yarn up -R "*"`
-- `yarn npm audit --severity moderate`
-- `yarn lint`
-- `yarn build`
-
-### Quarterly Evergreen Cycle (major review)
-
-- Review majors one at a time (framework/tooling), with a dedicated PR.
-- If `@types/node` gets bumped, repin to **24.10.7**, then re-run audit/lint/build.
-
----
-
----
-
 ## 📚 Table of Contents
 
 - [Quick Start](#-quick-start)
 - [Licensing & Usage](#-licensing--usage)
 - [Manifestos](#-manifestos)
-- [General Information](#%E2%84%B9%EF%B8%8F-general-information)
-- [What is PABRIKROTI?](#️-what-is-pabrikroti)
-- [Key Features](#-key-features)
 - [Getting Started](#%EF%B8%8F-getting-started)
 - [Resources](#-resources)
 - [Contributing](#-contributing)
@@ -74,6 +38,37 @@ yarn install && yarn dev
 > — Prof. NOTA
 
 ---
+
+## About This Repo
+
+This repo is a **MeMoRa** staging build for **Ina Motion / Voyage.Co.Id**: a Web3-ready web app for commemorating experiences with **virtual collectibles** and gated media/content. It is built as a production-safe artefact that combines storytelling, collectibles, and optional access control through onchain identity.
+
+### What it does
+
+- Runs a multi-mode site (domain-based) that can render a full landing experience or a logged-in/gated experience.
+- Provides collectible flows for **NFTs** and supporting utilities for **FTs**:
+  - NFTs: `/free`, `/paid`, `/token/[idNFT]`
+  - FTs: `/coins`, `/address/[coinAddress]`
+- Includes content surfaces beyond collectibles (e.g. curated pages, “perks”, and media playback), including an **HLS playlist API** (`/api/playlist`) used by media pages.
+
+### Blockchain & onboarding
+
+- This deployment is designed for the **Base** blockchain (EVM-compatible).
+- Wallet onboarding uses **thirdweb SDK v5** with **account abstraction** (Smart Accounts + sponsored gas) and supports both in-app wallets (email/passkey/social) and external wallets.
+
+### Technology
+
+- Next.js (App Router) + React + TypeScript
+- Tailwind CSS
+- thirdweb (ERC-1155 / ERC-20 integrations + Smart Accounts)
+- hls.js (streaming playback)
+- Vercel deployment
+
+### How we build (quality + workflow)
+
+- We keep changes small and reviewable, and always verify with audit/lint/build before shipping.
+- We keep the UX stable across releases while maintaining compatibility with Node 24 + Yarn 4 for Vercel deployments.
+- We treat this repo as an operational prototype: documented, repeatable, and ready to be extended for future campaigns and content libraries.
 
 ## 📜 Licensing & Usage
 
@@ -105,52 +100,6 @@ Manifestos are available in:
 - 🇭🇰 [Cantonese – Hong Kong](./manifestos/manifesto_yue-Hant-HK.md)
 - 🇲🇾 [Bahasa Malaysia](./manifestos/manifesto_ms-MY.md)
 - 🇦🇪 [العربية – الإمارات](./manifestos/manifesto_ar-AE.md)
-
----
-
-## ℹ️ General Information
-
-**PABRIK ROTI: Programmed Bread Factory for Web3 Distribution**  
-_Developed and maintained by [Prof. NOTA Inc.](https://nota.endhonesa.com)_
-
----
-
-### 🏗️ What is PABRIKROTI?
-
-**PABRIKROTI** is a white label, multi-tenant, Web3-enabled application designed to create, display, and distribute tokenized digital assets—referred to as **Programmed Bread**. It supports NFTs (ERC-721/ERC-1155) and fungible tokens (ERC-20), integrating dynamic tenant configurations, visual claim interfaces, and cultural licensing through a fully modular and customizable framework.
-
-PABRIKROTI operates as a **decentralized digital production space**, where each domain/subdomain (e.g., `pabrikroti.endhonesa.com`) loads unique configurations for its respective brand, campaign, or cultural project, while still using the same underlying platform.
-
----
-
-### ✨ Key Features
-
-- **Dynamic Tenant-Based Theming**  
-  Auto-detects hostname, which is domain/subdomain and applies custom config from `/src/config/receipts/`.
-
-- **NFT Explorer & Claim Interface**  
-  Pages like `/free`, `/paid`, `/token/[idNFT]` list and handle claiming of tokenized assets with eligibility logic, fallback visuals, and blockchain status integration.
-
-- **ERC-20 Token Claim Pages**  
-  Pages like `/coins`, `/address/[coinAddress]` enable users to claim community or utility tokens with live metadata, eligibility checks, and claim buttons.
-
-- **Flexible Front Page (Multi-Mode)**  
-  Depending on the domain/subdomain, the home page renders:
-
-  - **Mode `abc`**: Login gateway with featured tokens
-  - **Mode `aiueo`**: Landing page for branding & storytelling
-
-- **Web3-Ready & Mobile Optimized**  
-  Built with:
-
-  - Next.js 16 + App Router
-  - React 19 + Server Components
-  - Tailwind CSS v4
-  - ThirdWeb SDK v5
-  - Prof. NOTA Inc. Protocol
-
-- **Ethical Licensing & Multilingual Manifestos**  
-  Supports 6+ languages for license agreements and project manifestos. Access is granted only with permission from [Prof. NOTA & Prof. NOTA Inc.](https://nota.endhonesa.com/) or certified facilitators.
 
 ---
 
@@ -253,3 +202,30 @@ If you have questions, feel free to open an issue or reach out via the Prof. NOT
 For feedback, questions, or cultural-technical collaboration, join Prof. NOTA discord at [https://discord.gg/5KrsT6MbFm](https://discord.gg/5KrsT6MbFm).
 
 ---
+
+---
+
+## Maintenance by Prof. NOTA Evergreen Standard
+
+This repo is intended to stay evergreen while remaining production-safe.
+
+### Current Baseline (Jan 2026)
+
+- Runtime: Node **24.x** (Vercel-compatible; see `.nvmrc` and `package.json#engines`)
+- Package manager: Yarn **4.12.0** (lockfile: `yarn.lock`)
+- Types: `@types/node` **24.10.7** (pinned to match Node 24; 25.x intentionally deferred)
+- Key packages: Next.js **16.1.4**, React **19.2.3**, thirdweb **5.118.0**, framer-motion **12.29.0**, hls.js **1.6.15**
+- Deploy target: **Vercel auto-deploy from `main`**
+
+### Monthly Evergreen Cycle (safe)
+
+- `yarn install`
+- `yarn up -R "*"`
+- `yarn npm audit --severity moderate`
+- `yarn lint`
+- `yarn build`
+
+### Quarterly Evergreen Cycle (major review)
+
+- Review majors one at a time (framework/tooling), with a dedicated PR.
+- If `@types/node` gets bumped, repin to **24.10.7**, then re-run audit/lint/build.
