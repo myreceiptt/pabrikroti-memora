@@ -17,65 +17,26 @@
 
 This repo is intended to stay evergreen while remaining production-safe.
 
-### Runtime
+### Current Baseline (Jan 2026)
 
-- Node: **24.x** (see `.nvmrc` and `package.json#engines`)
+- Runtime: Node **24.x** (Vercel-compatible; see `.nvmrc` and `package.json#engines`)
+- Package manager: Yarn **4.12.0** (lockfile: `yarn.lock`)
+- Types: `@types/node` **24.10.7** (pinned to match Node 24; 25.x intentionally deferred)
+- Key packages: Next.js **16.1.4**, React **19.2.3**, thirdweb **5.118.0**, framer-motion **12.29.0**, hls.js **1.6.15**
+- Deploy target: **Vercel auto-deploy from `main`**
 
-  - ~~example alternatives: 22.x / 20.x (adjust if platform requires)~~
+### Monthly Evergreen Cycle (safe)
 
-- Package manager:
+- `yarn install`
+- `yarn up -R "*"`
+- `yarn npm audit --severity moderate`
+- `yarn lint`
+- `yarn build`
 
-  - **Yarn** (lockfile: `yarn.lock`)
-  - ~~PNPM (lockfile: `pnpm-lock.yaml`)~~
-  - ~~NPM (lockfile: `package-lock.json`)~~
+### Quarterly Evergreen Cycle (major review)
 
-- Deploy target:
-
-  - **Vercel**
-  - ~~Netlify~~
-  - ~~Self-hosted / Docker~~
-  - ~~Other platform (document explicitly)~~
-
-### Monthly Safe Updates (recommended)
-
-1. Check what’s outdated:
-
-   - `yarn outdated`
-   - ~~pnpm outdated~~
-   - ~~npm outdated~~
-
-2. Upgrade safe (patch/minor) versions:
-
-   - `yarn upgrade`
-   - ~~pnpm update~~
-   - ~~npm update~~
-   - or upgrade specific packages shown as non-major
-
-3. Verify:
-
-   - `yarn audit --level moderate`
-   - ~~pnpm audit~~
-   - ~~npm audit~~
-   - `yarn lint`
-   - `yarn build`
-   - ~~pnpm build~~
-   - ~~npm run build~~
-
-4. Deploy:
-
-   - **Vercel auto-deploy from `main`**
-   - ~~manual deploy according to platform workflow~~
-
-### Major Updates (quarterly / scheduled)
-
-Major upgrades (framework, runtime, or core tooling) must be done one at a time, with a dedicated PR and full testing.
-
-Examples:
-
-- Node major version
-- Next.js / React major version
-- Tailwind CSS major version
-- Package manager major version
+- Review majors one at a time (framework/tooling), with a dedicated PR.
+- If `@types/node` gets bumped, repin to **24.10.7**, then re-run audit/lint/build.
 
 ---
 
