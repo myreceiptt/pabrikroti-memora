@@ -41,7 +41,7 @@ yarn install && yarn dev
 
 ## About This Repo
 
-This repo is a **MeMoRa** staging build for **Ina Motion / Voyage.Co.Id**: a Web3-ready web app for commemorating experiences with **virtual collectibles** and gated media/content. It is built as a production-safe artefact that combines storytelling, collectibles, and optional access control through onchain identity.
+This repo is a **MeMoRa** staging build for **Voyage.Co.Id**: a Web3-ready web app for commemorating experiences with **virtual collectibles** and gated media/content. It is built as a production-safe artefact that combines storytelling, collectibles, and optional access control through onchain identity.
 
 ### What it does
 
